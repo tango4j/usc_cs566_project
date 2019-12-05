@@ -12,9 +12,11 @@ img: /assets/img/12.jpg
 **_Taejin Park, Yongwan Lim, Yichen Zhou, Kaixi Wang_**  
   
 ### Motivation  
+
 The rise of deep neural-network based approaches have significantly improved natural dialog with machines in the past few years. While conditional generative models have been successfully deployed in image/video applications, there is still much that can be done with generative language models such as VAE[1] in text and language applications. 
 
-### **Goal of this project**
+### **Goal of this project**  
+
 The goal of this project is to artificially generate semantically and syntactically correct produc review comments given human inputted keyword prompts. Specifically, we are trying to address the question: *Can we generate text while controlling the output?* If we can control the output of generated text, we can apply this technique to many of real life applications, including chat-bot, AI speaker, predictive text, and many others. 
 
 ![fig1](https://yongwanlim.github.io/assets/img/project1_fig1.png)
@@ -30,31 +32,38 @@ We expect this project to have the following features:
 To artificially generate semantically and syntactically correct review sentences given human inputted keyword prompts.  
 * Training input: review texts, rating 1 or 5 
 * Inference
-    * Input: review rating 1~5, keywords (subject category,...)
+    * Input: review rating 1 or 5
     * Output: review sentences containing and/or reflecting the given distinct context and sentiment
     
 This would require us to being able to have randomness and controllability at the same time.
 The main challenges of this problem would be that:
+
 * Output is often generated independent of the conditioning input (mode collapse).
 * Quality of generated sentence (repetitive phrases, too general output) 
 
 ### **Previous Method**
-#### Conditional Variational Auto-Encoder (VAE)
+
+#### Conditional Variational Auto-Encoder (VAE) [1]
+
 * Training
 ![fig2](https://yongwanlim.github.io/assets/img/project1_fig2.png)
+* Conditional VAE system that uses keyword/sentiment as conditional input.
+* Both encoder and decoder take the keyword input during training. 
 
 * Inference
 ![fig3](https://yongwanlim.github.io/assets/img/project1_fig3.png)
-* Conditional VAE system that uses keyword/sentiment as conditional input.
-* Both encoder and decoder take the keyword input during training. 
+
 * Decoder outputs a few sentences of review about a product driven by keyword input.
 * Random noise input can work as a seed for generated review
+
 * **Limitation of conventional CVAE **: the decoder ignores conditional input (mode collapse)
     * Example: 
         * 1-star input, 100 noise samples ➝  44 positive, 56 negative output 
         * 5-star input, 100 noise samples ➝  61 positive, 39 negative output 
         
-        
+    * Even if we provide conditioning input to decoder, the sentiment is heavily dependent on random signal and conditioning input is not able to  change the sentiment already ingrained in random noise.
+    * Thus, we need more powerful and efficient way to enforce the sentiment to the training system and inferencing system.
+    
 ### **Proposed Method: Improved CVAE **
 * Training (CVAE + **Discriminator**) 
 ![fig5](https://yongwanlim.github.io/assets/img/project1_fig4.png)
@@ -89,10 +98,12 @@ We test the effectiveness of the proposed methods in terms of sentiment accuracy
 1. Conditional decoder
     * The conditional output accuracy is dependent on 𝜶.
     * Check how output text varies over different 𝜶.  
+    
 1. Output filtering
     * Rejects the output text with low discriminator output softmax probability
         
 Sentiment accuracy is used as a performance metric, which is measured by BERT (Transformer) + LSTM sentiment classifier trained on IMDB dataset. Note that for sanity check, accuracy of 92.31% for IMDB test set.
+
 ### **Evaluation**
 We evaluate the quality of artificially generated sentences along the following two dimensions:
 1. Evaluation by humans:
