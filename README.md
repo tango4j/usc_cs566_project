@@ -178,7 +178,10 @@ We evaluate the quality of artificially generated sentences along the following 
 ### Additional Work:
 
 #### [Product review generation using GPT2 model()
- 
+Score	|    Headline    |	Review
+------| ---------------|---------------
+5	| I would buy those again	| I absolutely love these, even though the price was such that I did not get them in time. The sound is amazing and I would recommend these.
+2	| This item never came |	If you are looking at something for cheap, it would be very nice to receive an item that never came.  This item did not come after 2 weeks.  I emailed Amazon who did not even respond to my email.
  
 ### Conclusion
 1.  The challenge of ignored condition
