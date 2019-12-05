@@ -15,7 +15,7 @@ img: /assets/img/12.jpg
 
 The rise of deep neural-network based approaches have significantly improved natural dialog with machines in the past few years. While conditional generative models have been successfully deployed in image/video applications, there is still much that can be done with generative language models such as VAE[1] in text and language applications. 
 
-### **Goal of this project**  
+### Goal of this project  
 
 The goal of this project is to artificially generate semantically and syntactically correct produc review comments given human inputted keyword prompts. Specifically, we are trying to address the question: *Can we generate text while controlling the output?* If we can control the output of generated text, we can apply this technique to many of real life applications, including chat-bot, AI speaker, predictive text, and many others. 
 
@@ -27,7 +27,7 @@ We expect this project to have the following features:
 * Grammatically correct sentence output that contains a distinct context
 
 
-### **Problem Definition**
+### Problem Definition
 
 To artificially generate semantically and syntactically correct review sentences given human inputted keyword prompts.  
 * Training input: review texts, rating 1 or 5 
@@ -41,16 +41,16 @@ The main challenges of this problem would be that:
 * Output is often generated independent of the conditioning input (mode collapse).
 * Quality of generated sentence (repetitive phrases, too general output) 
 
-### **Previous Method**
+### Traditional Method
 
 #### Conditional Variational Auto-Encoder (VAE) [1]
 
-* Training
+#### Training
 ![fig2](https://yongwanlim.github.io/assets/img/project1_fig2.png)
 * Conditional VAE system that uses keyword/sentiment as conditional input.
 * Both encoder and decoder take the keyword input during training. 
 
-* Inference
+#### Inference
 ![fig3](https://yongwanlim.github.io/assets/img/project1_fig3.png)
 
 * Decoder outputs a few sentences of review about a product driven by keyword input.
@@ -64,21 +64,27 @@ The main challenges of this problem would be that:
     * Even if we provide conditioning input to decoder, the sentiment is heavily dependent on random signal and conditioning input is not able to  change the sentiment already ingrained in random noise.
     * Thus, we need more powerful and efficient way to enforce the sentiment to the training system and inferencing system.
     
-### **Proposed Method: Improved CVAE **
-* Training (CVAE + **Discriminator**) 
+### Proposed Method: Improved CVAE 
+#### Training (CVAE + **Discriminator**) 
 ![fig5](https://yongwanlim.github.io/assets/img/project1_fig4.png)
 
-* Attaching discriminator enables the model to backpr
+* Discriminator is a classifier that classifies sentiment into two different categories.
+* Attaching discriminator enables the model to backpropagate the error from the sentiment (star rating) labels thus lead to more accurate sentiment.
 
-* Inference (**Conditional** Decoder + **Discriminator** + **Filtering**)
+#### Inference (**Conditional** Decoder + **Discriminator** + **Filtering**)
+
 ![fig5](https://yongwanlim.github.io/assets/img/project1_fig5.png)
+
+* Since conventional CVAE system ignores the conditioning input, we can force the conditioned word output by leveraging the discriminator.
+* the alpha value balances between the softmax value from discriminator and the softmax value from the decoder.
+* If the alpha value is close to 0, the model outputs very plausible and grammatically correct sentence but inaccurate sentiment.
+* If the alpha value is close to 1, the model outputs more accurate sentiment but with poor grammar and semantic.
+
 ![fig6](https://yongwanlim.github.io/assets/img/project1_fig6.png)
 
-* E
-
-* Output filtering by discriminator’s softmax value
+* If text output is not giving certain amount of confidence in terms of softmax value of the discriminator, we drop the output text and regenerate it.
     
-### **Neural Network Training**
+### Neural Network Training
 
 * Training Dataset:  Amazon review dataset [2]
     * Train with a subset of 5 major categories (Electronics, mobile electronics, major appliances, and etc)
@@ -89,7 +95,7 @@ The main challenges of this problem would be that:
     * 66% negative / 33% positive data
     * Example  
     
-        `Reviewer ID: R1KKOXHNI8MSXU`  
+        `**Reviewer ID:** R1KKOXHNI8MSXU`  
         `Product category: Apparel`  
         `Review text: “This is the second leggings I have ordered, I wear both of them often. They wash well and I receive many compliments on them!”`  
         `5-star rating of the product: 5` 
@@ -97,8 +103,9 @@ The main challenges of this problem would be that:
         
 * Environment
     * Pytorch 0.4.1, CUDA 10.0, Python 3.6
-### **Experiments**
+### Experiments
 We test the effectiveness of the proposed methods in terms of sentiment accuracy measure:
+
 1. Conditional decoder
     * The conditional output accuracy is dependent on 𝜶.
     * Check how output text varies over different 𝜶.  
@@ -121,7 +128,7 @@ We evaluate the quality of artificially generated sentences along the following 
         * Evaluators were asked whether they think the review is positive or negative
     
 1. Evaluation by algorithm:
-    * BERT model based Bi-LSTM sentiment classifier
+    * BERT model based Bi-LSTM sentiment classifier (the same system as in experiment session)
     * Trained on IMDB data using BERT embeddings (IMDB test set accuracy: 92.31%)
     * **Task 2**: Sentiment Classification 
         * 48 comments; 24 1-star, 24 5-star
