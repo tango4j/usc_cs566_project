@@ -110,7 +110,7 @@ We test the effectiveness of the proposed methods in terms of sentiment accuracy
         
 Sentiment accuracy is used as a performance metric, which is measured by BERT (Transformer) + LSTM sentiment classifier trained on IMDB dataset. Note that for sanity check, accuracy of 92.31% for IMDB test set.
 
-### **Evaluation**
+### Evaluation
 We evaluate the quality of artificially generated sentences along the following two dimensions:
 1. Evaluation by humans:
     * 15 human participants   
@@ -129,19 +129,19 @@ We evaluate the quality of artificially generated sentences along the following 
         * 48 comments; 24 1-star, 24 5-star
         
         
-### **Results**
-#### **Control between sentiment and syntex**   
+### Results
+#### Control between sentiment and syntax   
 * Example of conditional decoder output of negative condition,  star rating 1.
 ![fig8](https://yongwanlim.github.io/assets/img/project1_fig8.png)
 * If alpha is 0, there is no influence of discriminator, and it sometimes generates sentiment that is not correspond to the given sentiment (The given star rating is 1, but alpha=0 sentence says "she loves it")
 * Higher alpha values show grammatical errors (e.g. These are a terrible product) or sentences do not make any sense (e.g. no distortion when it goes)
 
-#### **Improvement of sentiment accuracy by conditional decoder and output filtering**
+#### Improvement of sentiment accuracy by conditional decoder and output filtering
 ![fig9](https://yongwanlim.github.io/assets/img/project1_fig9.png)
 * Sentiment accuracy is evaluated with different 𝜶 and 𝜶=0.65 gives the best performance while showing a good balance between grammar and accurate sentiment.
 * All the following evaluation is done with alpha value of 0.65.
 
-#### **Task 1: Real vs Generated**
+#### Task 1: Real vs Generated
 1. Evaluation by Humans:
     **Accuracy (F1 score): 70.83% (73.31%)**
     ![fig10](https://yongwanlim.github.io/assets/img/project1_fig10.png)
@@ -154,7 +154,7 @@ We evaluate the quality of artificially generated sentences along the following 
     * We picked three sentences that all the human annotators said "Real" comments. These sentences show very consistent sentiment.
     * We also picked three sentences that all the human annotators said "Generated", which means failed output. These sentences show lots of conflicting sentiment and semantically incorrect phrases.
 
-#### **Task 2: Sentiment Accuracy**
+#### Task 2: Sentiment Accuracy
 1. Evaluation by humans:
  **Accuracy (F1 score):  87.5% (88.00%)**
     * Ground truth: majority vote of annotated sentiment scores (0 generatd or 1 real) from humans 
@@ -175,7 +175,7 @@ We evaluate the quality of artificially generated sentences along the following 
 * This correlation reflects the credibility of algorithm (machine) based evaluation.
 * There are few highly conflicting outcomes: Human annotators are far better at capturing semantics from the text to judge the actual sentiment.
  
-### **Conclusion**
+### Conclusion
 1.  The challenge of ignored condition
     * Input condition to CVAE can be ignored and lead to mode collapse.
     * Conditional generative model should be carefully designed to avoid ignored condition problem.
@@ -185,7 +185,7 @@ We evaluate the quality of artificially generated sentences along the following 
     * Output filtering also increases the quality of generated text.
  
  
-### **Future Work**
+### Future Work
 1. Consistency of sentiment:
     * Time varying conditional decoder’s 𝜶 value that controls the condition 
     * Self attention algorithm to focus on the certain part of the generated text.
