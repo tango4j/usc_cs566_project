@@ -177,7 +177,7 @@ We evaluate the quality of artificially generated sentences along the following 
  
 ### Additional Work:
 
-#### [Product review generation using GPT2 model](usc_cs566_project/gpt2_work.md)
+#### [Product review generation using GPT2 model](https://github.com/tango4j/usc_cs566_project/gpt2_work.md)
 Score	|    Headline    |	Review
 ------| ---------------|---------------
 5	| I would buy those again	| I absolutely love these, even though the price was such that I did not get them in time. The sound is amazing and I would recommend these.
