@@ -28,10 +28,11 @@ We expect this project to have the following features:
 ### **Problem Definition**
 
 To artificially generate semantically and syntactically correct review sentences given human inputted keyword prompts.  
-* Training input: review texts, rating 1~5, subject category
+* Training input: review texts, rating 1 or 5 
 * Inference
     * Input: review rating 1~5, keywords (subject category,...)
     * Output: review sentences containing and/or reflecting the given distinct context and sentiment
+    
 This would require us to being able to have randomness and controllability at the same time.
 The main challenges of this problem would be that:
 * Output is often generated independent of the conditioning input (mode collapse).
@@ -41,6 +42,7 @@ The main challenges of this problem would be that:
 #### Conditional Variational Auto-Encoder (VAE)
 * Training
 ![fig2](https://yongwanlim.github.io/assets/img/project1_fig2.png)
+
 * Inference
 ![fig3](https://yongwanlim.github.io/assets/img/project1_fig3.png)
 * Conditional VAE system that uses keyword/sentiment as conditional input.
