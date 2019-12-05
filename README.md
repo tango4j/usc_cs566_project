@@ -4,16 +4,20 @@ title: Product review generation using conditional generative language model
 description: CSCI 566 2019 Fall Project (NLP TextGen)
 img: /assets/img/12.jpg
 ----->
-**_Taejin Park, Yongwan Lim, Yichen Zhou, Kaixi Wang_**  
-The rise of deep neural-network based approaches have significantly improved natural dialog with machines in the past few years. While conditional generative models have been successfully deployed in image/video applications, there is still much that can be done with generative language models such as GAN and VAE in text and language applications. 
-### **Goal of this project**
-The goal of this project is to artificially generate semantically and syntactically correct sentences given human inputted keyword prompts. Specifically, we are trying to address the question like *Can we generate text while controlling the output?* If we can control the output of generated text, we can apply this technique to many of real life applications, including chat-bot, AI speaker, predictive text, and so on. 
-<!--<div class="img_row">
-<img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig1.png" alt="" title="fig1"/>
-</div>-->
-![fig1](https://yongwanlim.github.io/assets/img/project1_fig1.png)
 
-We expect this project to have the following features:
+# title: Product review generation using conditional generative language model
+### CSCI 566 2019 Fall Project (Team Name: NLP TextGen)
+
+**_Taejin Park, Yongwan Lim, Yichen Zhou, Kaixi Wang_**  
+  
+### Motivation  
+The rise of deep neural-network based approaches have significantly improved natural dialog with machines in the past few years. While conditional generative models have been successfully deployed in image/video applications, there is still much that can be done with generative language models such as GAN and VAE in text and language applications. 
+
+### **Goal of this project**
+The goal of this project is to artificially generate semantically and syntactically correct sentences given human inputted keyword prompts. Specifically, we are trying to address the question: *Can we generate text while controlling the output?* If we can control the output of generated text, we can apply this technique to many of real life applications, including chat-bot, AI speaker, predictive text, and many others. 
+
+![fig1](https://yongwanlim.github.io/assets/img/project1_fig1.png)
+We expect this project to have the following features:  
 * Generative language model
 * Keyword prompts input: sentiment (rating), subject (product name), aggressiveness (vocabulary)
 * Grammatically correct sentence output that contains a distinct context
@@ -30,30 +34,19 @@ The main challenges of this problem would be that:
 ### **Previous Method**
 #### Conditional Variational Auto-Encoder (VAE)
 * Training
-![fig1](https://yongwanlim.github.io/assets/img/project1_fig2.png)
-
-<!--<div class="img_row">
-<img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig2.png" alt="" title="fig2"/>
-</div>
-<div class="col three caption"> 
-Training mode CVAE
-</div> -->
+![fig2](https://yongwanlim.github.io/assets/img/project1_fig2.png)
 * Inference
-![fig1](https://yongwanlim.github.io/assets/img/project1_fig3.png)
-<!--<div class="img_row">
-<img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig3.png" alt="" title="fig3"/>
-</div>
-<div class="col three caption">
-Inference mode CVAE
-</div> -->
+![fig3](https://yongwanlim.github.io/assets/img/project1_fig3.png)
 * Conditional VAE system that uses keyword/sentiment as conditional input.
 * Both encoder and decoder take the keyword input during training. 
 * Decoder outputs a few sentences of review about a product driven by keyword input.
 * Random noise input can work as a seed for generated review
-* **Main problem**: the decoder ignores conditional input (mode collapse)
+* **Limitation of conventional CVAE **: the decoder ignores conditional input (mode collapse)
     * Example: 
         * 1-star input, 100 noise samples ➝  44 positive, 56 negative output 
         * 5-star input, 100 noise samples ➝  61 positive, 39 negative output 
+        
+        
 ### **Proposed Method: Improved CVAE**
 * Training (CVAE + **Discriminator**) 
 <!--<div class="img_row">
