@@ -5,8 +5,9 @@ description: CSCI 566 2019 Fall Project (NLP TextGen)
 img: /assets/img/12.jpg
 ----->
 
-# title: Product review generation using conditional generative language model
-### CSCI 566 2019 Fall Project (Team Name: NLP TextGen)
+# Product review generation using conditional generative language model
+### CSCI 566 2019 Fall Project 
+### Team Name: NLP_TextGen
 
 **_Taejin Park, Yongwan Lim, Yichen Zhou, Kaixi Wang_**  
   
@@ -14,14 +15,18 @@ img: /assets/img/12.jpg
 The rise of deep neural-network based approaches have significantly improved natural dialog with machines in the past few years. While conditional generative models have been successfully deployed in image/video applications, there is still much that can be done with generative language models such as GAN and VAE in text and language applications. 
 
 ### **Goal of this project**
-The goal of this project is to artificially generate semantically and syntactically correct sentences given human inputted keyword prompts. Specifically, we are trying to address the question: *Can we generate text while controlling the output?* If we can control the output of generated text, we can apply this technique to many of real life applications, including chat-bot, AI speaker, predictive text, and many others. 
+The goal of this project is to artificially generate semantically and syntactically correct produc review comments given human inputted keyword prompts. Specifically, we are trying to address the question: *Can we generate text while controlling the output?* If we can control the output of generated text, we can apply this technique to many of real life applications, including chat-bot, AI speaker, predictive text, and many others. 
 
 ![fig1](https://yongwanlim.github.io/assets/img/project1_fig1.png)
+
 We expect this project to have the following features:  
 * Generative language model
 * Keyword prompts input: sentiment (rating), subject (product name), aggressiveness (vocabulary)
 * Grammatically correct sentence output that contains a distinct context
+
+
 ### **Problem Definition**
+
 To artificially generate semantically and syntactically correct review sentences given human inputted keyword prompts.  
 * Training input: review texts, rating 1~5, subject category
 * Inference
@@ -31,6 +36,7 @@ This would require us to being able to have randomness and controllability at th
 The main challenges of this problem would be that:
 * Output is often generated independent of the conditioning input (mode collapse).
 * Quality of generated sentence (repetitive phrases, too general output) 
+
 ### **Previous Method**
 #### Conditional Variational Auto-Encoder (VAE)
 * Training
@@ -49,31 +55,16 @@ The main challenges of this problem would be that:
         
 ### **Proposed Method: Improved CVAE**
 * Training (CVAE + **Discriminator**) 
-<!--<div class="img_row">
-<img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig4.png" alt="" title="fig4"/>
-</div>
-<div class="col three caption">
-Training: CVAE + "Discriminator"
-</div> -->
+![fig5](https://yongwanlim.github.io/assets/img/project1_fig4.png)
 
 * Inference (**Conditional** Decoder + **Discriminator** + **Filtering**)
- <!--   <div class="img_row">
-    <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig5.png" alt="" title="fig5"/>
-    </div>
-    <div class="col three caption">
-    "Conditional"" Decoder + "Discriminator"
-    </div>
-    <div class="img_row">
-    <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig6.png" alt="" title="fig6"/>
-    </div>
-    <div class="col three caption">
-    "Conditional" Decoder + "Discriminator" + "Filtering"
-    </div> -->
-    
-    * Output filtering by discriminator’s softmax value
-    
+![fig5](https://yongwanlim.github.io/assets/img/project1_fig5.png)
+![fig6](https://yongwanlim.github.io/assets/img/project1_fig6.png)
+
+* Output filtering by discriminator’s softmax value
     
 ### **Network Training**
+
 * Training Dataset:  Amazon review dataset [3]
     * Train with a subset of 5 major categories (Electronics, mobile electronics, major appliances, and etc)
     * Train on 0.6M reviews
@@ -82,6 +73,7 @@ Training: CVAE + "Discriminator"
     * Only use 1-star (negative) and 5-star (positive) ratings
     * 66% negative / 33% positive data
     * Example  
+    
         `Reviewer ID: R1KKOXHNI8MSXU`  
         `Product category: Apparel`  
         `Review text: “This is the second leggings I have ordered, I wear both of them often. They wash well and I receive many compliments on them!”`  
@@ -119,52 +111,35 @@ We evaluate the quality of artificially generated sentences along the following 
 ### **Results**
 #### **Control between sentiment and syntex**   
 * Example of conditional decoder output of negative condition,  star rating 1.
-<!--    <div class="img_row">
-    <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig8.png" alt="" title="fig8"/>
-    </div>
-    <div class="col three caption">
-    Conditional decoder output with a range of 𝜶
-    </div> -->
+![fig8](https://yongwanlim.github.io/assets/img/project1_fig8.png)
+Conditional decoder output with a range of 𝜶
+
 #### **Improvement of sentiment accuracy by conditional decoder and output filtering**
-<!--<div class="img_row">
-<img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig9.png" alt="" title="fig9"/>
-</div>
-<div class="col two caption">
-Sentiment Accuracy 
-(*Sentiment accuracy is evaluated with different 𝜶 and 𝜶=0.65 gives the best performance.)
-</div> -->
+![fig9](https://yongwanlim.github.io/assets/img/project1_fig9.png)
+Sentiment accuracy is evaluated with different 𝜶 and 𝜶=0.65 gives the best performance.
 
 #### **Task 1: Real vs Generated**
 1. Evaluation by Humans:
     **Accuracy (F1 score): 70.83% (73.31%)**
-<!--    <div class="img_row">
-    <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig10.png" alt="" title="fig10"/>
-    </div>
-    <div class="col three caption">
-    Accuracy of 50% means humans cannot tell the difference.
-    </div> -->
+    ![fig10](https://yongwanlim.github.io/assets/img/project1_fig10.png)
+
     * *Highlights* of evaluation by humans
-<!--    <div class="img_row">
-    <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig11.png" alt="" title="fig11"/>
-    </div> -->
-        
+    ![fig11](https://yongwanlim.github.io/assets/img/project1_fig11.png)
+
+       
      
 #### **Task 2: Sentiment Accuracy**
 1. Evaluation by humans:
  **Accuracy (F1 score):  87.5% (88.00%)**
     * Ground truth: majority vote of annotated sentiment scores (0 generatd or 1 real) from humans 
     * *Highlights* of evaluation by humans
- <!--   <div class="img_row">
-    <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig12.png" alt="" title="fig12"/>
-    </div>-->
+    ![fig12](https://yongwanlim.github.io/assets/img/project1_fig12.png)
     
 2. Evaluation by machine:
  **Accuracy (F1 score): 77.08% (80.70%)**
       * Softmax value of positive/negative sentiment class
 3. Sentiment Score Comparison Machine vs Humans
-<!--  <div class="img_row">
-  <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig7.png" alt="" title="fig7"/>
-  </div>-->
+![fig7](https://yongwanlim.github.io/assets/img/project1_fig7.png)
  
 ### **Conclusion**
 1.  The challenge of ignored condition
