@@ -7,7 +7,7 @@
   
 ### Motivation  
 
-The rise of deep neural-network based approaches have significantly improved natural dialog with machines in the past few years. While conditional generative models have been successfully deployed in image/video applications, there is still much that can be done with generative language models such as VAE[1] in text and language applications. 
+The rise of deep neural-network based approaches has significantly improved natural dialog with machines in the past few years. While conditional generative models have been successfully deployed in image/video applications, there is still much that can be done with generative language models such as VAE[1] in text and language applications. 
 
 ### Goal of this project  
 
@@ -32,7 +32,7 @@ To artificially generate semantically and syntactically correct review sentences
 This would require us to being able to have randomness and controllability at the same time.
 The main challenges of this problem would be that:
 
-* Output is often generated independent of the conditioning input (mode collapse).
+* Output is often generated independently of the conditioning input (mode collapse).
 * Quality of generated sentence (repetitive phrases, too general output) 
 
 ### Traditional Method
@@ -157,7 +157,7 @@ We evaluate the quality of artificially generated sentences along the following 
 #### Task 2: Sentiment Accuracy
 1. Evaluation by humans:
  **Accuracy (F1 score):  87.5% (88.00%)**
-    * Ground truth: majority vote of annotated sentiment scores (0 generatd or 1 real) from humans 
+    * Ground truth: majority vote of annotated sentiment scores (0 generated or 1 real) from humans 
     * *Highlights* of evaluation by humans
     ![fig12](https://yongwanlim.github.io/assets/img/project1_fig12.png)
     
@@ -166,7 +166,7 @@ We evaluate the quality of artificially generated sentences along the following 
     
 2. Evaluation by machine:
  **Accuracy (F1 score): 77.08% (80.70%)**
-      * This score is from the softmax value of positive/negative sentiment class in BERT + BiLSTM model trained on IMDB datset.
+      * This score is from the softmax value of positive/negative sentiment class in BERT + BiLSTM model trained on IMDB dataset.
       * BERT + BiLSTM model tends to output negative sentence as positive sentence since there are plenty of negative expressions that do not exist in IMDB dataset. (e.g. This plastic cover do not fit into my camera and very cheaply made.)
       
 3. Sentiment Score Comparison Machine vs Humans
