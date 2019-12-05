@@ -32,7 +32,7 @@ To artificially generate semantically and syntactically correct review sentences
 This would require us to being able to have randomness and controllability at the same time.
 The main challenges of this problem would be that:
 
-* Output is often generated independent of the conditioning input (mode collapse).
+* The generated output is often independent of the conditioning input (mode collapse).
 * Quality of generated sentence (repetitive phrases, too general output) 
 
 ### Traditional Method
