@@ -11,7 +11,7 @@ The rise of deep neural-network based approaches have significantly improved nat
 
 ### Goal of this project  
 
-The goal of this project is to artificially generate semantically and syntactically correct produc review comments given human inputted keyword prompts. Specifically, we are trying to address the question: *Can we generate text while controlling the output?* If we can control the output of generated text, we can apply this technique to many of real life applications, including chat-bot, AI speaker, predictive text, and many others. 
+The goal of this project is to artificially generate semantically and syntactically correct product review comments given human inputted keyword prompts. Specifically, we are trying to address the question: *Can we generate text while controlling the output?* If we can control the output of generated text, we can apply this technique to many of real life applications, including chat-bot, AI speaker, predictive text, and many others. 
 
 ![fig1](https://yongwanlim.github.io/assets/img/project1_fig1.png)
 
