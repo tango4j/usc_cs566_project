@@ -175,6 +175,11 @@ We evaluate the quality of artificially generated sentences along the following 
 * This correlation reflects the credibility of algorithm (machine)-based evaluation.
 * There are few highly conflicting outcomes: Human annotators are far better at capturing semantics from the text to judge the actual sentiment.
  
+### Additional Work:
+
+#### [Product review generation using GPT2 model()
+ 
+ 
 ### Conclusion
 1.  The challenge of ignored condition
     * Input condition to CVAE can be ignored and lead to mode collapse.
