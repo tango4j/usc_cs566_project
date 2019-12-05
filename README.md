@@ -8,9 +8,9 @@ img: /assets/img/12.jpg
 The rise of deep neural-network based approaches have significantly improved natural dialog with machines in the past few years. While conditional generative models have been successfully deployed in image/video applications, there is still much that can be done with generative language models such as GAN and VAE in text and language applications. 
 ### **Goal of this project**
 The goal of this project is to artificially generate semantically and syntactically correct sentences given human inputted keyword prompts. Specifically, we are trying to address the question like *Can we generate text while controlling the output?* If we can control the output of generated text, we can apply this technique to many of real life applications, including chat-bot, AI speaker, predictive text, and so on. 
-<div class="img_row">
+<!--<div class="img_row">
 <img class="col three left" src="{{ site.baseurl }}/assets/img/project1_fig1.png" alt="" title="fig1"/>
-</div>
+</div>-->
 We expect this project to have the following features:
 * Generative language model
 * Keyword prompts input: sentiment (rating), subject (product name), aggressiveness (vocabulary)
