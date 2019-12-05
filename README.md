@@ -56,7 +56,7 @@ The main challenges of this problem would be that:
 * Decoder outputs a few sentences of review about a product driven by keyword input.
 * Random noise input can work as a seed for generated review
 
-* **Limitation of conventional CVAE **: the decoder ignores conditional input (mode collapse)
+* **Limitation of conventional CVAE** : the decoder ignores conditional input (mode collapse)
     * Example: 
         * 1-star input, 100 noise samples ➝  44 positive, 56 negative output 
         * 5-star input, 100 noise samples ➝  61 positive, 39 negative output 
@@ -68,9 +68,13 @@ The main challenges of this problem would be that:
 * Training (CVAE + **Discriminator**) 
 ![fig5](https://yongwanlim.github.io/assets/img/project1_fig4.png)
 
+* Attaching discriminator enables the model to backpr
+
 * Inference (**Conditional** Decoder + **Discriminator** + **Filtering**)
 ![fig5](https://yongwanlim.github.io/assets/img/project1_fig5.png)
 ![fig6](https://yongwanlim.github.io/assets/img/project1_fig6.png)
+
+* E
 
 * Output filtering by discriminator’s softmax value
     
