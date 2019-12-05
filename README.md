@@ -37,7 +37,7 @@ The main challenges of this problem would be that:
 
 ### Traditional Method
 
-#### Conditional Variational Auto-Encoder (VAE) [1]
+#### Conditional Variational Auto-Encoder (CVAE) [1]
 
 #### Training
 ![fig2](https://yongwanlim.github.io/assets/img/project1_fig2.png)
