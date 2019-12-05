@@ -12,7 +12,7 @@ img: /assets/img/12.jpg
 **_Taejin Park, Yongwan Lim, Yichen Zhou, Kaixi Wang_**  
   
 ### Motivation  
-The rise of deep neural-network based approaches have significantly improved natural dialog with machines in the past few years. While conditional generative models have been successfully deployed in image/video applications, there is still much that can be done with generative language models such as GAN and VAE in text and language applications. 
+The rise of deep neural-network based approaches have significantly improved natural dialog with machines in the past few years. While conditional generative models have been successfully deployed in image/video applications, there is still much that can be done with generative language models such as VAE[1] in text and language applications. 
 
 ### **Goal of this project**
 The goal of this project is to artificially generate semantically and syntactically correct produc review comments given human inputted keyword prompts. Specifically, we are trying to address the question: *Can we generate text while controlling the output?* If we can control the output of generated text, we can apply this technique to many of real life applications, including chat-bot, AI speaker, predictive text, and many others. 
@@ -55,7 +55,7 @@ The main challenges of this problem would be that:
         * 5-star input, 100 noise samples ➝  61 positive, 39 negative output 
         
         
-### **Proposed Method: Improved CVAE**
+### **Proposed Method: Improved CVAE **
 * Training (CVAE + **Discriminator**) 
 ![fig5](https://yongwanlim.github.io/assets/img/project1_fig4.png)
 
@@ -65,9 +65,9 @@ The main challenges of this problem would be that:
 
 * Output filtering by discriminator’s softmax value
     
-### **Network Training**
+### **Neural Network Training**
 
-* Training Dataset:  Amazon review dataset [3]
+* Training Dataset:  Amazon review dataset [2]
     * Train with a subset of 5 major categories (Electronics, mobile electronics, major appliances, and etc)
     * Train on 0.6M reviews
     * Vocabulary size of 60K words
@@ -110,6 +110,8 @@ We evaluate the quality of artificially generated sentences along the following 
     * Trained on IMDB data using BERT embeddings (IMDB test set accuracy: 92.31%)
     * **Task 2**: Sentiment Classification 
         * 48 comments; 24 1-star, 24 5-star
+        
+        
 ### **Results**
 #### **Control between sentiment and syntex**   
 * Example of conditional decoder output of negative condition,  star rating 1.
@@ -161,3 +163,6 @@ Sentiment accuracy is evaluated with different 𝜶 and 𝜶=0.65 gives the best
 1. Generative method coupled with CVAE+Discriminator
     * A way to modify the random input to prevent the condition ignoring problem
  
+### **Reference**
+[1] Sohn, Kihyuk, Honglak Lee, and Xinchen Yan. “Learning Structured Output Representation using Deep Conditional Generative Models.” Advances in Neural Information Processing Systems. 2015.
+[2] Amazon review dataset: http://jmcauley.ucsd.edu/data/amazon/ 
