@@ -1,9 +1,3 @@
-<!----
-layout: page
-title: Product review generation using conditional generative language model
-description: CSCI 566 2019 Fall Project (NLP TextGen)
-img: /assets/img/12.jpg
------>
 
 # Product review generation using conditional generative language model
 ### CSCI 566 2019 Fall Project 
@@ -76,7 +70,7 @@ The main challenges of this problem would be that:
 ![fig5](https://yongwanlim.github.io/assets/img/project1_fig5.png)
 
 * Since conventional CVAE system ignores the conditioning input, we can force the conditioned word output by leveraging the discriminator.
-* the alpha value balances between the softmax value from discriminator and the softmax value from the decoder.
+* The alpha value balances between the softmax value from discriminator and the softmax value from the decoder.
 * If the alpha value is close to 0, the model outputs very plausible and grammatically correct sentence but inaccurate sentiment.
 * If the alpha value is close to 1, the model outputs more accurate sentiment but with poor grammar and semantic.
 
@@ -87,13 +81,13 @@ The main challenges of this problem would be that:
 ### Neural Network Training
 
 * Training Dataset:  Amazon review dataset [2]
-    * Train with a subset of 5 major categories (Electronics, mobile electronics, major appliances, and etc)
-    * Train on 0.6M reviews
+    * Trained on a subset of 5 major categories (Electronics, mobile electronics, major appliances, and etc)
+    * Trained on total 0.6M reviews
     * Vocabulary size of 60K words
     * Limit sentence length between 20 and 60 words, including punctuations.
     * Only use 1-star (negative) and 5-star (positive) ratings
-    * 66% negative / 33% positive data
-    * Example  
+    * 66% negative / 33% positive data (*Since negative comments tend to have more variability, doubling the dataset of negative training data balances the variability of output text's sentiment)
+    * Example of training dataset: 
     
         `**Reviewer ID:** R1KKOXHNI8MSXU`  
         `Product category: Apparel`  
@@ -103,6 +97,7 @@ The main challenges of this problem would be that:
         
 * Environment
     * Pytorch 0.4.1, CUDA 10.0, Python 3.6
+    
 ### Experiments
 We test the effectiveness of the proposed methods in terms of sentiment accuracy measure:
 
@@ -138,22 +133,27 @@ We evaluate the quality of artificially generated sentences along the following 
 #### **Control between sentiment and syntex**   
 * Example of conditional decoder output of negative condition,  star rating 1.
 ![fig8](https://yongwanlim.github.io/assets/img/project1_fig8.png)
-Conditional decoder output with a range of 𝜶
+* If alpha is 0, there is no influence of discriminator, and it sometimes generates sentiment that is not correspond to the given sentiment (The given star rating is 1, but alpha=0 sentence says "she loves it")
+* Higher alpha values show grammatical errors (e.g. These are a terrible product) or sentences do not make any sense (e.g. no distortion when it goes)
 
 #### **Improvement of sentiment accuracy by conditional decoder and output filtering**
 ![fig9](https://yongwanlim.github.io/assets/img/project1_fig9.png)
-Sentiment accuracy is evaluated with different 𝜶 and 𝜶=0.65 gives the best performance.
+* Sentiment accuracy is evaluated with different 𝜶 and 𝜶=0.65 gives the best performance while showing a good balance between grammar and accurate sentiment.
+* All the following evaluation is done with alpha value of 0.65.
 
 #### **Task 1: Real vs Generated**
 1. Evaluation by Humans:
     **Accuracy (F1 score): 70.83% (73.31%)**
     ![fig10](https://yongwanlim.github.io/assets/img/project1_fig10.png)
+    
+    * 50% is chance probablity and this means that some texts are very plausible while some are not.
 
     * *Highlights* of evaluation by humans
     ![fig11](https://yongwanlim.github.io/assets/img/project1_fig11.png)
 
-       
-     
+    * We picked three sentences that all the human annotators said "Real" comments. These sentences show very consistent sentiment.
+    * We also picked three sentences that all the human annotators said "Generated", which means failed output. These sentences show lots of conflicting sentiment and semantically incorrect phrases.
+
 #### **Task 2: Sentiment Accuracy**
 1. Evaluation by humans:
  **Accuracy (F1 score):  87.5% (88.00%)**
@@ -161,11 +161,19 @@ Sentiment accuracy is evaluated with different 𝜶 and 𝜶=0.65 gives the best
     * *Highlights* of evaluation by humans
     ![fig12](https://yongwanlim.github.io/assets/img/project1_fig12.png)
     
+    * We picked the sentences with coherent sentiment outcome from human annotators. These sentences have very consistent sentiment in each sentence.
+    * We also picked the sentences which have conflicting annotations. These sentences have inconsistent sentiment which means failed output.
+    
 2. Evaluation by machine:
  **Accuracy (F1 score): 77.08% (80.70%)**
-      * Softmax value of positive/negative sentiment class
+      * This score is from the softmax value of positive/negative sentiment class in BERT + BiLSTM model trained on IMDB datset.
+      * BERT + BiLSTM model tends to output negative sentence as positive sentence since there are plenty of negative expressions that do not exist in IMDB dataset. (e.g. This plastic cover do not fit into my camera and very cheaply made.)
+      
 3. Sentiment Score Comparison Machine vs Humans
 ![fig7](https://yongwanlim.github.io/assets/img/project1_fig7.png)
+
+* This correlation reflects the credibility of algorithm (machine) based evaluation.
+* There are few highly conflicting outcomes: Human annotators are far better at capturing semantics from the text to judge the actual sentiment.
  
 ### **Conclusion**
 1.  The challenge of ignored condition
