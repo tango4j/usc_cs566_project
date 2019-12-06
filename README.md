@@ -4,7 +4,9 @@
 ### Team Name: NLP_TextGen
 
 **_Taejin Park, Yongwan Lim, Yichen Zhou, Kaixi Wang_**  
-  
+
+### [[CODE]](https://bitbucket.org/taejinpa/cvae-textgen)
+
 ### Motivation  
 
 The rise of deep neural-network based approaches has significantly improved natural dialog with machines in the past few years. While conditional generative models have been successfully deployed in image/video applications, there is still much that can be done with generative language models such as VAE[1] and GPT2[3][4] in text and language applications. 
@@ -213,5 +215,5 @@ Score	|    Headline    |	Review
 [3] A. Radford, J. Wu, R. Child, D. Luan, D. Amodei and I. Sutskever. Language Models are Unsupervised Multitask Learners. 2019.  
 [4]GPT-2 Model release: https://www.openai.com/blog/better-language-models/  
 
-[CODE](https://bitbucket.org/taejinpa/cvae-textgen)
+
 
