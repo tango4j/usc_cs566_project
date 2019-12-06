@@ -177,7 +177,7 @@ We evaluate the quality of artificially generated sentences along the following 
 * This correlation reflects the credibility of algorithm (machine)-based evaluation.
 * There are few highly conflicting outcomes: Human annotators are far better at capturing semantics from the text to judge the actual sentiment.
  
-### Additional Work:
+### Additional Work: Pretrained model(GPT-2) based text generation
 
 #### [(CLICK) Product review generation using GPT2 model](https://github.com/tango4j/usc_cs566_project/blob/master/gpt2_work.md)
 * Click the above link to view the details.
