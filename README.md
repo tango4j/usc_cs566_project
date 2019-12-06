@@ -15,7 +15,7 @@ The rise of deep neural-network based approaches has significantly improved natu
 
 The goal of this project is to artificially generate semantically and syntactically correct product review comments given human inputted keyword prompts. Specifically, we are trying to address the question: *Can we generate text while controlling the output?* If we can control the output of generated text, we can apply this technique to many real life applications, including chat-bot, AI speaker, predictive text, and many others. 
 
-![fig1](https://raw.github.com/tango4j/usc_cs566_project/master/pics/project1_fig1.png)
+![fig1](https://gc/pics/project1_fig1.png)
 
 We expect this project to have the following features:  
 * Generative language model
@@ -42,7 +42,7 @@ The main challenges of this problem would be that:
 #### Conditional Variational Auto-Encoder (CVAE) [1]
 
 #### Training
-![fig2](https://github.com/tango4j/usc_cs566_project/tree/edit/master/pics/project1_fig2.png)
+![fig2](https://raw.github.com/tango4j/usc_cs566_project/master/pics/project1_fig2.png)
 * Conditional VAE system that uses keyword/sentiment as conditional input.
 * Both encoder and decoder take the keyword input during training. 
 
