@@ -7,7 +7,7 @@
   
 ### Motivation  
 
-The rise of deep neural-network based approaches has significantly improved natural dialog with machines in the past few years. While conditional generative models have been successfully deployed in image/video applications, there is still much that can be done with generative language models such as VAE[1] in text and language applications. 
+The rise of deep neural-network based approaches has significantly improved natural dialog with machines in the past few years. While conditional generative models have been successfully deployed in image/video applications, there is still much that can be done with generative language models such as VAE[1] and GPT2[3][4] in text and language applications. 
 
 ### Goal of this project  
 
@@ -177,7 +177,7 @@ We evaluate the quality of artificially generated sentences along the following 
  
 ### Additional Work:
 
-#### [(Click to view)Product review generation using GPT2 model](https://github.com/tango4j/usc_cs566_project/blob/master/gpt2_work.md)
+#### [(CLICK) Product review generation using GPT2 model](https://github.com/tango4j/usc_cs566_project/blob/master/gpt2_work.md)
 * Click the above link to view the details.
 * Besides our proposed improved CVAE model, we also approahced this problem with pretrained language model (GPT-2).
 * For pretrained language model, we fined tuned the model with refined 
@@ -210,3 +210,5 @@ Score	|    Headline    |	Review
 ### **Reference**
 [1] Sohn, Kihyuk, Honglak Lee, and Xinchen Yan. “Learning Structured Output Representation using Deep Conditional Generative Models.” Advances in Neural Information Processing Systems. 2015.  
 [2] Amazon review dataset: http://jmcauley.ucsd.edu/data/amazon/ 
+[3] A. Radford, J. Wu, R. Child, D. Luan, D. Amodei and I. Sutskever. Language Models are Unsupervised Multitask Learners. 2019.
+[4]GPT-2 Model release: https://www.openai.com/blog/better-language-models/
