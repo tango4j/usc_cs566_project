@@ -177,12 +177,18 @@ We evaluate the quality of artificially generated sentences along the following 
  
 ### Additional Work:
 
-#### [Product review generation using GPT2 model](https://github.com/tango4j/usc_cs566_project/blob/master/gpt2_work.md)
+#### [(Click to view)Product review generation using GPT2 model](https://github.com/tango4j/usc_cs566_project/blob/master/gpt2_work.md)
+* Click the above link to view the details.
+* Besides our proposed improved CVAE model, we also approahced this problem with pretrained language model (GPT-2).
+* For pretrained language model, we fined tuned the model with refined 
+* Here are some examples from fine-tuned GPT-2 based text generation system:
+
 Score	|    Headline    |	Review
 ------| ---------------|---------------
 5	| I would buy those again	| I absolutely love these, even though the price was such that I did not get them in time. The sound is amazing and I would recommend these.
 2	| This item never came |	If you are looking at something for cheap, it would be very nice to receive an item that never came.  This item did not come after 2 weeks.  I emailed Amazon who did not even respond to my email.
- 
+5	| Just what I was looking for	| My husband is always wanting to get a Bluetooth headset and has now found the ideal one in my pocket. It holds his music perfectly and is comfortable. It also has great sound quality for listening to music. Great sound, great built-in mic, and the Bluetooth connection works wonderfully. My husband can use his laptop to play his MP3 player while he works. The speakers work just fine on it. It is a bit loud but I get it loud. The headphones are very long and this is a great fit for those who want an outside ear, as well as others who require some sort of earbud. All in all, a great product for such a reasonable price.
+
 ### Conclusion
 1.  The challenge of ignored condition
     * Input condition to CVAE can be ignored and lead to mode collapse.
