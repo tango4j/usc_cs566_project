@@ -15,7 +15,7 @@ The rise of deep neural-network based approaches has significantly improved natu
 
 The goal of this project is to artificially generate semantically and syntactically correct product review comments given human inputted keyword prompts. Specifically, we are trying to address the question: *Can we generate text while controlling the output?* If we can control the output of generated text, we can apply this technique to many real life applications, including chat-bot, AI speaker, predictive text, and many others. 
 
-![fig1](https://github.com/tango4j/usc_cs566_project/tree/master/pics/project1_fig1.png)
+![fig1](https://github.com/tango4j/usc_cs566_project/pics/project1_fig1.png)
 
 We expect this project to have the following features:  
 * Generative language model
