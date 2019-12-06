@@ -92,9 +92,9 @@ The main challenges of this problem would be that:
     * Example of training dataset: 
     
         `Reviewer ID: R1KKOXHNI8MSXU`  
-        `Product category: Apparel`  
-        `Review text: “This is the second leggings I have ordered, I wear both of them often. They wash well and I receive many compliments on them!”`  
-        `5-star rating of the product: 5` 
+        `Product category: Apparel`   
+        `Review text: “This is the second leggings I have ordered, I wear both of them often. They wash well and I receive many compliments on them!”`   
+        `5-star rating of the product: 5`   
         `Helpful votes: 3`
         
 * Environment
