@@ -42,7 +42,7 @@ The main challenges of this problem would be that:
 #### Conditional Variational Auto-Encoder (CVAE) [1]
 
 #### Training
-![fig2](https://github.com/tango4j/usc_cs566_project/tree/master/pics/project1_fig2.png)
+![fig2](https://github.com/tango4j/usc_cs566_project/tree/edit/master/pics/project1_fig2.png)
 * Conditional VAE system that uses keyword/sentiment as conditional input.
 * Both encoder and decoder take the keyword input during training. 
 
