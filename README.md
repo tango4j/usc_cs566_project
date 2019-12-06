@@ -180,7 +180,7 @@ We evaluate the quality of artificially generated sentences along the following 
 #### [(CLICK) Product review generation using GPT2 model](https://github.com/tango4j/usc_cs566_project/blob/master/gpt2_work.md)
 * Click the above link to view the details.
 * Besides our proposed improved CVAE model, we also approahced this problem with pretrained language model (GPT-2).
-* For pretrained language model, we fined tuned the model with refined 
+* For pretrained language model, we fined tuned the model with refined training dataset by filtering "helpfulness" in amazon review dataset.
 * Here are some examples from fine-tuned GPT-2 based text generation system:
 
 Score	|    Headline    |	Review
