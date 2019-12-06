@@ -209,6 +209,6 @@ Score	|    Headline    |	Review
  
 ### **Reference**
 [1] Sohn, Kihyuk, Honglak Lee, and Xinchen Yan. “Learning Structured Output Representation using Deep Conditional Generative Models.” Advances in Neural Information Processing Systems. 2015.  
-[2] Amazon review dataset: http://jmcauley.ucsd.edu/data/amazon/ 
-[3] A. Radford, J. Wu, R. Child, D. Luan, D. Amodei and I. Sutskever. Language Models are Unsupervised Multitask Learners. 2019.
-[4]GPT-2 Model release: https://www.openai.com/blog/better-language-models/
+[2] Amazon review dataset: http://jmcauley.ucsd.edu/data/amazon/   
+[3] A. Radford, J. Wu, R. Child, D. Luan, D. Amodei and I. Sutskever. Language Models are Unsupervised Multitask Learners. 2019.  
+[4]GPT-2 Model release: https://www.openai.com/blog/better-language-models/  
